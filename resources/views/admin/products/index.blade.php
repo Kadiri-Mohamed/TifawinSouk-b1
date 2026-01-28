@@ -34,6 +34,10 @@
                                     <th scope="col" class="px-6 py-3 font-medium">
                                         Stock
                                     </th>
+                                    <th scope="col" class="px-6 py-3 font-medium">
+                                        Actions
+                                    </th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -54,6 +58,10 @@
                                         <td class="px-6 py-4">
                                             {{ $product->stock }}
                                         </td>
+                                        <td class="px-6 py-4">
+                                           <a href="{{ route('admin.products.show', $product->id) }}" class="text-blue-500 hover:text-blue-700">Show</a>
+                                        </td>
+                                        
                                     </tr>
                                 @endforeach
                             </tbody>

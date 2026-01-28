@@ -9,6 +9,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
+                                        <a class="text-blue-600 hover:text-blue-800" href="{{ route('admin.products.index') }}"> Back to products</a>
+
                     <form class="max-w-sm mx-auto" method="post" action="{{ route('admin.products.store') }}">
                         @csrf
                         <div class="mb-5">

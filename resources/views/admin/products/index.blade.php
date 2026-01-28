@@ -59,7 +59,8 @@
                                             {{ $product->stock }}
                                         </td>
                                         <td class="px-6 py-4">
-                                           <a href="{{ route('admin.products.show', $product->id) }}" class="text-blue-500 hover:text-blue-700">Show</a>
+                                           <a href="{{ route('admin.products.show', $product->id) }}" class="text-blue-500 hover:text-blue-700">Show |</a>
+                                           <a href="{{ route('admin.products.edit', $product->id) }}" class="text-blue-500 hover:text-blue-700">| Edit</a>
                                         </td>
                                         
                                     </tr>

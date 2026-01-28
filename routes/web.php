@@ -19,6 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/products/create' , [ProductController::class , 'create'])->name('admin.products.create');
     Route::post('/admin/products/store' , [ProductController::class , 'store'])->name('admin.products.store'); 
     Route::get('/admin/products/{id}' , [ProductController::class , 'show'])->name('admin.products.show'); 
+    Route::get('/admin/products/{id}/edit' , [ProductController::class , 'edit'])->name('admin.products.edit'); 
+    Route::put('/admin/products/{id}' , [ProductController::class , 'update'])->name('admin.products.update'); 
 });
 
 require __DIR__.'/auth.php';

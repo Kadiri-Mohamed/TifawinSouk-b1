@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
 
-
+                    <a href="{{ route('admin.products.create') }}"> Add Product</a>
                     <div
                         class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
                         <table class="w-full text-sm text-left rtl:text-right text-body">

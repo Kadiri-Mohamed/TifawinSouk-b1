@@ -32,7 +32,16 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'nom' => 'required|min:3|max:100',
+            'stock' => 'required|numeric',
+            'reference' => 'required',
+            'prix' => 'required|numeric',
+            'description' => 'required|min:10',
+        ]);
+
+        Product::create($data);
+        return redirect()->route('admin.products.index')->with('success', 'Produit ajouté avec succès');
     }
 
     /**

@@ -9,7 +9,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <form class="max-w-sm mx-auto">
+                    <form class="max-w-sm mx-auto" method="post" action="{{ route('admin.products.store') }}">
+                        @csrf
                         <div class="mb-5">
                             <label for="name" class="block mb-2.5 text-sm font-medium text-heading">Name</label>
                             <input type="text" id="name" name="nom"

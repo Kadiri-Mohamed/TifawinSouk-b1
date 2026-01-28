@@ -9,7 +9,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-
+                    @isset($success)
+                        {{ $success }}
+                    @endisset
                     <a href="{{ route('admin.products.create') }}"> Add Product</a>
                     <div
                         class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
@@ -44,10 +46,10 @@
                                             {{ $product->nom }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $product->category->name }}
+                                            {{ $product->category->name ?? "unassigned categorie" }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $product->prix }}
+                                            {{ $product->prix . " MAD"}}
                                         </td>
                                         <td class="px-6 py-4">
                                             {{ $product->stock }}

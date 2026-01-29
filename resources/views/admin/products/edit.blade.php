@@ -9,9 +9,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                                        <a class="text-blue-600 hover:text-blue-800" href="{{ route('admin.products.index') }}"> Back to products</a>
+                    <a class="text-blue-600 hover:text-blue-800" href="{{ route('admin.products.index') }}"> Back to
+                        products</a>
 
-                    <form class="max-w-sm mx-auto" method="post" action="{{ route('admin.products.update' , $product->id) }}">
+                    <form class="max-w-sm mx-auto" method="post"
+                        action="{{ route('admin.products.update', $product->id) }}">
                         @csrf
                         @method('PUT')
                         <div class="mb-5">
@@ -30,9 +32,8 @@
                         <div class="mb-5">
                             <label for="description"
                                 class="block mb-2.5 text-sm font-medium text-heading">Description</label>
-                            <textarea name="description" class="block w-full mb-2.5 text-sm font-medium text-heading"
-                              value="{{ $product->description }}"  id="description">
-                        </textarea>
+                            <textarea name="description" id="description"
+                                class="block w-full mb-2.5 text-sm font-medium text-heading">{{ $product->description }}</textarea>
                         </div>
                         <div class="mb-5">
                             <label for="prix" class="block mb-2.5 text-sm font-medium text-heading">Prix</label>
@@ -44,7 +45,7 @@
                             <label for="stock" class="block mb-2.5 text-sm font-medium text-heading">Stock</label>
                             <input type="number" id="stock" name="stock"
                                 class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-                               value="{{ $product->stock }}" required />
+                                value="{{ $product->stock }}" required />
                         </div>
                         <div class="mb-5">
                             <label for="image" class="block mb-2.5 text-sm font-medium text-heading">Image</label>

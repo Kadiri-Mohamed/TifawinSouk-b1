@@ -68,13 +68,17 @@ class ProductController extends Controller
     public function update(Request $request, string $id)
     {
         $product = Product::find($id);
-          $data = $request->validate([
+        $data = $request->validate([
             'nom' => 'required|min:3|max:100',
-            'stock' => 'required|numeric',
             'reference' => 'required',
+            'stock' => 'required|numeric',
             'prix' => 'required|numeric',
             'description' => 'required|min:10',
+            'category' => 'required|exists:categories,id'
         ]);
+
+        $data['category_id'] = $data['category'];
+        unset($data['category']);
 
         $product->update($data);
         return redirect()->route('admin.products.index')->with('success', 'Produit modifié avec succès');

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -23,7 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/admin/products/{id}', [ProductController::class, 'update'])->name('admin.products.update');
     Route::delete('/admin/products/{id}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
     Route::post('/admin/products/{id}/restore', [ProductController::class, 'restore'])->name('admin.products.restore');
-
+    Route::resources(['admin/categories' => CategoryController::class]);
 });
 
 require __DIR__ . '/auth.php';

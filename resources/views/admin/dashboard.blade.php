@@ -11,6 +11,8 @@
                 <div class="p-6 ">
                     <a href="{{ route('admin.products.index') }}" class="text-red-700"> Gestion des produits </a>
                     <br>
+                    <br>
+                    <br>
                     <a href="{{ route('categories.index') }}" class="text-red-700"> Gestion des categories </a>
                 </div>
             </div>

@@ -46,7 +46,7 @@
                                         </td>
                                         <td class="px-6 py-4 flex">
                                            @if ($category->deleted_at)
-                                            <form action="{{ route('categories.restore', $category->id) }}" method="POST">
+                                            <form action="{{ route('admin.categories.restore', $category->id) }}" method="POST">
                                                 @csrf
                                                 <button type="submit" class="text-green-500 hover:text-green-700">Restore</button>
                                             </form>

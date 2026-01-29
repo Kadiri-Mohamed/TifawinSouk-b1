@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/products/{id}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
     Route::post('/admin/products/{id}/restore', [ProductController::class, 'restore'])->name('admin.products.restore');
     Route::resources(['admin/categories' => CategoryController::class]);
+    Route::post('/admin/categories/{id}/restore', [CategoryController::class, 'restore'])->name('admin.categories.restore');
 });
 
 require __DIR__ . '/auth.php';

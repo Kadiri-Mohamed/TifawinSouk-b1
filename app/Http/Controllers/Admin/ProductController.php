@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::withTrashed()->get();
         return view('admin.products.index', compact('products'));
     }
 
@@ -89,6 +89,15 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->route('admin.products.index')->with('success', 'Produit supprimé avec succès');
+    }
+
+    public function restore(string $id)
+    {
+        $product = Product::withTrashed()->find($id);
+        $product->restore();
+        return redirect()->route('admin.products.index')->with('success', 'Produit restauré avec succès');
     }
 }

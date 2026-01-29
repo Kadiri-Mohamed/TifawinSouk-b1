@@ -58,9 +58,21 @@
                                         <td class="px-6 py-4">
                                             {{ $product->stock }}
                                         </td>
-                                        <td class="px-6 py-4">
-                                           <a href="{{ route('admin.products.show', $product->id) }}" class="text-blue-500 hover:text-blue-700">Show |</a>
-                                           <a href="{{ route('admin.products.edit', $product->id) }}" class="text-blue-500 hover:text-blue-700">| Edit</a>
+                                        <td class="px-6 py-4 flex">
+                                           @if ($product->deleted_at)
+                                            <form action="{{ route('admin.products.restore', $product->id) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="text-green-500 hover:text-green-700">Restore</button>
+                                            </form>
+                                            @else
+                                            <a href="{{ route('admin.products.show', $product->id) }}" class="text-blue-500 hover:text-blue-700">Show |</a>
+                                           <a href="{{ route('admin.products.edit', $product->id) }}" class="text-blue-500 hover:text-blue-700">| Edit |</a>
+                                           <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="text-red-500 hover:text-red-700">| Delete</button>
+                                           </form>
+                                           @endif
                                         </td>
                                         
                                     </tr>

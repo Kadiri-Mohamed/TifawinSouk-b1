@@ -52,33 +52,22 @@
         <div class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
             <main class="flex w-full flex-col-reverse  lg:flex-row">
                 <div class="text-[13px] leading-[20px] flex-1 pb-12 lg:p-10 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none">
-                    <table class="w-full text-sm text-left rtl:text-right text-body">
-                        <thead class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default">
-                            <tr>
-                                <td class="text-[#1b1b18] dark:text-[#EDEDEC] text-[13px] leading-[20px] font-bold">Name</td>
-                                <td class="text-[#1b1b18] dark:text-[#EDEDEC] text-[13px] leading-[20px] font-bold">REF</td>
-                                <td class="text-[#1b1b18] dark:text-[#EDEDEC] text-[13px] leading-[20px] font-bold">Prix</td>
-                                <td class="text-[#1b1b18] dark:text-[#EDEDEC] text-[13px] leading-[20px] font-bold">Stock</td>
-                                <td class="text-[#1b1b18] dark:text-[#EDEDEC] text-[13px] leading-[20px] font-bold">Description</td>
-                                <td class="text-[#1b1b18] dark:text-[#EDEDEC] text-[13px] leading-[20px] font-bold">Category</td>
-                                <td class="text-[#1b1b18] dark:text-[#EDEDEC] text-[13px] leading-[20px] font-bold">Action</td>
-                                
-                            </tr>
-                        </thead>
-                        @foreach ($products as $product)
-                            <tr>
-                                <td class="text-[#1b1b18] dark:text-[#EDEDEC] leading-[20px] ">{{ $product->nom }}</td>
-                                <td class="text-[#1b1b18] dark:text-[#EDEDEC] leading-[20px] ">{{ $product->reference }}</td>
-                                <td class="text-[#1b1b18] dark:text-[#EDEDEC] leading-[20px] ">{{ $product->prix }} MAD</td>
-                                <td class="text-[#1b1b18] dark:text-[#EDEDEC] leading-[20px] ">{{ $product->stock }}</td>
-                                <td class="text-[#1b1b18] dark:text-[#EDEDEC] leading-[20px] ">{{ $product->description }}</td>
-                                <td class="text-[#1b1b18] dark:text-[#EDEDEC] leading-[20px] ">{{ $product->category->slug ?? 'No Category' }}</td>
-                                <td class="text-[#1b1b18] dark:text-[#EDEDEC] leading-[20px] "><a href="{{ route('products.show', $product->id) }}" class="text-blue-500 }}">show</a></td>
-                            </tr>
-                        @endforeach
-                       
-                    </table>
-                </div>                 
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    <a class="text-blue-600 hover:text-blue-800" href="{{ route('home') }}"> Back to products</a>
+                    <h1 class=" text-xl font-bold">{{ $product->nom }}</h1>
+                    <p class="mt-4">{{ $product->description }}</p>
+                    <p class="mt-4">Price: {{ $product->prix }} MAD</p>
+                    <p class="mt-4">Stock: {{ $product->stock }}</p>
+                    <p class="mt-4">Category: {{ $product->category->slug ?? "unassigned categorie" }}</p>
+                    <p class="mt-4">Created at: {{ $product->created_at }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>                 
             </main>
         </div>
 

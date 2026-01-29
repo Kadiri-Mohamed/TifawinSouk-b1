@@ -14,7 +14,7 @@
                     <p class="mt-4">{{ $product->description }}</p>
                     <p class="mt-4">Price: {{ $product->prix }} MAD</p>
                     <p class="mt-4">Stock: {{ $product->stock }}</p>
-                    <p class="mt-4">Category: {{ $product->category->nom ?? "unassigned categorie" }}</p>
+                    <p class="mt-4">Category: {{ $product->category->slug ?? "unassigned categorie" }}</p>
                     <p class="mt-4">Created at: {{ $product->created_at }}</p>
                 </div>
             </div>

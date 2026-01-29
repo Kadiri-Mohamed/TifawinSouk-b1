@@ -55,7 +55,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -63,7 +64,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $category = Category::find($id);
+        $data = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+        $slug = Str::slug($request->name);
+        $data['slug'] = $slug;
+        $category->update($data);
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully');
     }
 
     /**

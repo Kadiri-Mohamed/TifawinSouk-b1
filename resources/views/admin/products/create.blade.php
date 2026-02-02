@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                                         <a class="text-blue-600 hover:text-blue-800" href="{{ route('admin.products.index') }}"> Back to products</a>
 
-                    <form class="max-w-sm mx-auto" method="post" action="{{ route('admin.products.store') }}">
+                    <form class="max-w-sm mx-auto" method="post" action="{{ route('admin.products.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-5">
                             <label for="name" class="block mb-2.5 text-sm font-medium text-heading">Name</label>

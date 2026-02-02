@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -37,8 +38,26 @@ class ProductController extends Controller
             'stock' => 'required|numeric',
             'reference' => 'required',
             'prix' => 'required|numeric',
+            'image' => 'required',
             'description' => 'required|min:10',
         ]);
+        // dd(
+        //     config('cloudinary.cloud_url'),
+        //     config('cloudinary.upload_preset')
+        // );
+        $upload = Cloudinary::upload(
+            $request->file('image')->getRealPath(),
+            [
+                'upload_preset' => 'laravel_images',
+                'folder' => 'products',
+            ]
+        );
+
+
+        $imageUrl = $upload->getSecurePath();
+        // $publicId = $upload->getPublicId();
+
+        $data['image'] = $imageUrl;
 
         Product::create($data);
         return redirect()->route('admin.products.index')->with('success', 'Produit ajouté avec succès');
